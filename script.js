@@ -20,8 +20,12 @@ let myLibrary = [
     },
 ];
 
-function Book () {
+function Book (title, author, pages, read) {
     // Constructor...
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
 }
 
 function addBookToLibrary () {
