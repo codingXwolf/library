@@ -16,6 +16,13 @@ let myLibrary = [
     },
     {
         id: 'c3',
+        title: 'Eragon',
+        author: 'Christopher Paolini',
+        pages: 503,
+        read: true
+    },
+    {
+        id: 'c4',
         title: 'The Tattooist of Auschwitz',
         author: 'Heather Morris',
         pages: 288,
@@ -25,15 +32,18 @@ let myLibrary = [
 
 //Display list of book on page
 myLibrary.forEach(book => {
-    let bookElement = `
-    <div>
-    <h3>${book.title}</h3>
-    <p>Author: ${book.author}</p>
-    <p>Pages: ${book.pages}</p>
-    <p>Read Status: ${book.read}</p>
-    </div><br/>`
-    
-    document.getElementById("library").innerHTML += bookElement;
+    let readStatus = book.read ? `unread` : `read`;
+    document.getElementById("library").innerHTML += `
+  <div class="column">
+    <div class="card">
+      <h3>${book.title}</h3>
+      <p>Author: ${book.author}</p>
+      <p>Pages: ${book.pages}</p>
+      <p>Read Status: ${book.read}</p>
+      <button>delete</button>
+      <button>${readStatus}</button>
+    </div>
+  </div>`;
 })
 
 function Book (id, title, author, pages, read) {
