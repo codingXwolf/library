@@ -45,6 +45,7 @@ function addBookToLibrary (title, author, pages, read) {
 
     let newBook = new Book(newId, title, author, pages, read);
     myLibrary.push(newBook);
+    
     console.log('Book added!')
     console.log(myLibrary);
 }
@@ -58,4 +59,8 @@ function removeBookFromLibrary(id) {
 
     console.log('Book is removed!');
     console.log(myLibrary);
+}
+
+function changeReadStatus(readStatus) {
+    // will get back to this.
 }
