@@ -23,10 +23,18 @@ let myLibrary = [
     },
 ];
 
-function displayBookList() {
-    let library = document.getElementById('#myLibrary');
+//Display list of book on page
+myLibrary.forEach(book => {
+    let bookElement = `
+    <div>
+    <h3>${book.title}</h3>
+    <p>Author: ${book.author}</p>
+    <p>Pages: ${book.pages}</p>
+    <p>Read Status: ${book.read}</p>
+    </div><br/>`
     
-}
+    document.getElementById("library").innerHTML += bookElement;
+})
 
 function Book (id, title, author, pages, read) {
     // Constructor...
