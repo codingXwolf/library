@@ -31,20 +31,23 @@ let myLibrary = [
 ];
 
 //Display list of book on page
-myLibrary.forEach(book => {
-    let readStatus = book.read ? `unread` : `read`;
-    document.getElementById("library").innerHTML += `
+function displayLibrary() {
+    myLibrary.forEach((book) => {
+      let readStatus = book.read ? `unread` : `read`;
+      document.getElementById("library").innerHTML += `
   <div class="column">
     <div class="card">
       <h3>${book.title}</h3>
       <p>Author: ${book.author}</p>
       <p>Pages: ${book.pages}</p>
       <p>Read Status: ${book.read}</p>
-      <button>delete</button>
+      <button onclick="removeBookFromLibrary()">delete</button>
       <button>${readStatus}</button>
     </div>
   </div>`;
-})
+    });
+}
+displayLibrary();
 
 function Book (id, title, author, pages, read) {
     // Constructor...
@@ -79,9 +82,9 @@ function removeBookFromLibrary(id) {
     }).indexOf(id);
 
     myLibrary.splice(index, 1);
-
     console.log('Book is removed!');
     console.log(myLibrary);
+    displayLibrary();
 }
 
 function changeReadStatus(readStatus) {
