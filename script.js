@@ -49,6 +49,13 @@ function addBookToLibrary (title, author, pages, read) {
     console.log(myLibrary);
 }
 
-function removeBookFromLibrary(book) {
-    
+function removeBookFromLibrary(id) {
+    let index = myLibrary.map(element => {
+        return element.id;
+    }).indexOf(id);
+
+    myLibrary.splice(index, 1);
+
+    console.log('Book is removed!');
+    console.log(myLibrary);
 }
