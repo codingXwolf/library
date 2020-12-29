@@ -23,6 +23,11 @@ let myLibrary = [
     },
 ];
 
+function displayBookList() {
+    let library = document.getElementById('#myLibrary');
+    
+}
+
 function Book (id, title, author, pages, read) {
     // Constructor...
     this.id = id;
@@ -45,7 +50,7 @@ function addBookToLibrary (title, author, pages, read) {
 
     let newBook = new Book(newId, title, author, pages, read);
     myLibrary.push(newBook);
-    
+
     console.log('Book added!')
     console.log(myLibrary);
 }
