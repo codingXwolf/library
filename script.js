@@ -28,13 +28,16 @@ function createId() {
       .substring(1);
 }
 
-function addBookToLibrary (title, author, pages, read) {
+function addBookToLibrary (event) {
+    event.preventDefault();
+    console.log(event.target);
     // will add books to my lbrary
     let newId = createId();
 
+    let cardDiv = document.createElement('div');
+
 
     console.log('Book added!')
-    console.log(myLibrary);
 }
 
 function removeBookFromLibrary(id) {
