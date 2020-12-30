@@ -1,53 +1,16 @@
-// All book will go here.
-let myLibrary = [
-    {
-        id: 'c1',
-        title: 'Harry Potter and the Philosophers Stone',
-        author: 'J.K Rowling',
-        pages: 368,
-        read: true
-    },
-    {
-        id: 'c2',
-        title: 'Hell Divers',
-        author: 'Nicholas Sansbury Smith',
-        pages: 357,
-        read: false
-    },
-    {
-        id: 'c3',
-        title: 'Eragon',
-        author: 'Christopher Paolini',
-        pages: 503,
-        read: true
-    },
-    {
-        id: 'c4',
-        title: 'The Tattooist of Auschwitz',
-        author: 'Heather Morris',
-        pages: 288,
-        read: false
-    },
-];
+//selectors
+let titleInput = document.querySelector('#title');
+let authorInput = document.querySelector('#author');
+let pagesInput = document.querySelector('#pages');
+let readStatus = document.querySelector('#readStatus');
+let submitBtn = document.querySelector('#submitBtn');
+let library = document.querySelector('#library');
 
-//Display list of book on page
-function displayLibrary() {
-    myLibrary.forEach((book) => {
-      let readStatus = book.read ? `unread` : `read`;
-      document.getElementById("library").innerHTML += `
-  <div class="column">
-    <div class="card">
-      <h3>${book.title}</h3>
-      <p>Author: ${book.author}</p>
-      <p>Pages: ${book.pages}</p>
-      <p>Read Status: ${book.read}</p>
-      <button onclick="removeBookFromLibrary()">delete</button>
-      <button>${readStatus}</button>
-    </div>
-  </div>`;
-    });
-}
-displayLibrary();
+//event listeners
+submitBtn.addEventListener('click', addBookToLibrary);
+
+// All book will go here.
+let myLibrary = [];
 
 function Book (id, title, author, pages, read) {
     // Constructor...
@@ -69,8 +32,6 @@ function addBookToLibrary (title, author, pages, read) {
     // will add books to my lbrary
     let newId = createId();
 
-    let newBook = new Book(newId, title, author, pages, read);
-    myLibrary.push(newBook);
 
     console.log('Book added!')
     console.log(myLibrary);

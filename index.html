@@ -24,9 +24,20 @@
 
         <label for="">Read Status</label>
         <input type="text" name="readStatus" id="readStatus">
+
+        <button type="submit" id="submitBtn">Add Book</button>
     </form>
 
     <div class="row" id="library">
+          <div class="column">
+    <div class="card">
+      <h3>Harry Potter and the Philosophers Stone</h3>
+      <p>Author: J.K Rowling</p>
+      <p>Pages: 368</p>
+      <p>Read Status: <button>read</button></p>
+      <button onclick="removeBookFromLibrary()">delete</button>
+    </div>
+  </div>
     </div>
 
 
