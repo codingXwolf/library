@@ -4,10 +4,12 @@
 // let pagesInput = document.querySelector('#pages');
 // let readStatus = document.querySelector('#readStatus');
 let submitBtn = document.querySelector('#submitBtn');
+let readStatusCB = document.querySelector('#readStatus');
 let library = document.querySelector('#library');
 
 //event listeners
 submitBtn.addEventListener('click', addBookToLibrary);
+readStatusCB.addEventListener("click", readStatusInputHandler);
 
 // All book will go here.
 let myLibrary = [
@@ -27,13 +29,33 @@ function createId() {
       .substring(1);
 }
 
+function check() {
+    readStatusCB.checked = true;
+}
+
+function unCheck() {
+    readStatusCB.checked = false;
+}
+
+function readStatusInputHandler(status) {
+    if(readStatusCB.checked) {
+        document.querySelector('.read-label').innerText = 'Read:';
+        check();
+        return true;
+    } else {
+      document.querySelector(".read-label").innerText = "Unread:";
+      unCheck();
+      return false;
+    }
+}
+
 class Book {
   constructor(title, author, pages, read) {
     this.id = createId();
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.read = readStatusInputHandler(read);
   }
 }
 
@@ -42,6 +64,7 @@ class Book {
 function addBookToLibrary (event) {
     event.preventDefault();
 
+    console.log(form.readStatus.value);
     let newBook = new Book(form.title.value, form.author.value, form.pages.value, form.readStatus.value);
     console.log(newBook)
     myLibrary.push(newBook);
@@ -61,26 +84,35 @@ function displayLibrary() {
     }
 }
 
+function readStatusDisplay(status) {
+  if (status) {
+    return "Read";
+  } else {
+    return "Unread";
+  }
+}
+
 displayLibrary();
 
-function createBookCard(item) {
+function createBookCard(book) {
   let columnDiv = document.createElement("div");
   columnDiv.className = 'column book'
+
   let cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
   columnDiv.appendChild(cardDiv);
 
   let headerThree = document.createElement("h3");
-  headerThree.innerText = item.title;
+  headerThree.innerText = book.title;
 
   let pAuthor = document.createElement("p");
-  pAuthor.innerText = item.author;
+  pAuthor.innerText = book.author;
 
   let pPages = document.createElement("p");
-  pPages.innerText = item.pages
+  pPages.innerText = book.pages;
 
   let pReadStatus = document.createElement("p");
-  pReadStatus.innerText = item.readStatus;
+  pReadStatus.innerText = readStatusDisplay(book.readStatus);
 
   cardDiv.appendChild(headerThree);
   cardDiv.appendChild(pAuthor);
