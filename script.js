@@ -10,7 +10,15 @@ let library = document.querySelector('#library');
 submitBtn.addEventListener('click', addBookToLibrary);
 
 // All book will go here.
-let myLibrary = [];
+let myLibrary = [
+    {
+        id: 'ed223',
+        title: 'Harry Potter and the Philosophers Stone',
+        author: 'J.K Rowling',
+        pages: 368,
+        readStatus: true
+    }
+];
 
 // Create new ID string
 function createId() {
@@ -52,6 +60,8 @@ function displayLibrary() {
         
     }
 }
+
+displayLibrary();
 
 function createBookCard(item) {
   let columnDiv = document.createElement("div");
