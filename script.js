@@ -9,7 +9,6 @@ let library = document.querySelector('#library');
 
 //event listeners
 submitBtn.addEventListener('click', addBookToLibrary);
-readStatusCB.addEventListener("click", readStatusInputHandler);
 
 // All book will go here.
 let myLibrary = [
@@ -29,33 +28,23 @@ function createId() {
       .substring(1);
 }
 
-function check() {
-    readStatusCB.checked = true;
-}
-
-function unCheck() {
-    readStatusCB.checked = false;
-}
-
 function readStatusInputHandler(status) {
-    if(readStatusCB.checked) {
-        document.querySelector('.read-label').innerText = 'Read:';
-        check();
-        return true;
+    console.log(status);
+    if(status) {
+        return 'Read';
     } else {
-      document.querySelector(".read-label").innerText = "Unread:";
-      unCheck();
-      return false;
+        return 'Unread'
     }
+
 }
 
 class Book {
-  constructor(title, author, pages, read) {
+  constructor(title, author, pages) {
+    
     this.id = createId();
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = readStatusInputHandler(read);
   }
 }
 
@@ -64,7 +53,6 @@ class Book {
 function addBookToLibrary (event) {
     event.preventDefault();
 
-    console.log(form.readStatus.value);
     let newBook = new Book(form.title.value, form.author.value, form.pages.value, form.readStatus.value);
     console.log(newBook)
     myLibrary.push(newBook);
@@ -82,14 +70,6 @@ function displayLibrary() {
         createBookCard(myLibrary[i]);
         
     }
-}
-
-function readStatusDisplay(status) {
-  if (status) {
-    return "Read";
-  } else {
-    return "Unread";
-  }
 }
 
 displayLibrary();
@@ -111,13 +91,15 @@ function createBookCard(book) {
   let pPages = document.createElement("p");
   pPages.innerText = book.pages;
 
-  let pReadStatus = document.createElement("p");
-  pReadStatus.innerText = readStatusDisplay(book.readStatus);
+  let readStatusBtn = document.createElement("button");
+  readStatusBtn.setAttribute('id', 'readStatusBtn')
+  readStatusBtn.addEventListener('click', readStatusInputHandler);
+  readStatusBtn.innerText = readStatusInputHandler();
 
   cardDiv.appendChild(headerThree);
   cardDiv.appendChild(pAuthor);
   cardDiv.appendChild(pPages);
-  cardDiv.appendChild(pReadStatus);
+  cardDiv.appendChild(readStatusBtn);
 
   library.appendChild(columnDiv);
 }
@@ -131,8 +113,4 @@ function removeBookFromLibrary(id) {
     console.log('Book is removed!');
     console.log(myLibrary);
     displayLibrary();
-}
-
-function changeReadStatus(readStatus) {
-    // will get back to this.
 }
