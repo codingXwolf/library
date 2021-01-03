@@ -55,8 +55,7 @@ function displayLibrary() {
 
 function createBookCard(item) {
   let columnDiv = document.createElement("div");
-  columnDiv.classList.add('book');
-  columnDiv.classList.add("column");
+  columnDiv.className = 'column book'
   let cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
   columnDiv.appendChild(cardDiv);
@@ -78,7 +77,7 @@ function createBookCard(item) {
   cardDiv.appendChild(pPages);
   cardDiv.appendChild(pReadStatus);
 
-  library.appendChild(cardDiv);
+  library.appendChild(columnDiv);
 }
 
 function removeBookFromLibrary(id) {
