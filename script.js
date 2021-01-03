@@ -37,35 +37,48 @@ function addBookToLibrary (event) {
     let newBook = new Book(form.title.value, form.author.value, form.pages.value, form.readStatus.value);
     console.log(newBook)
     myLibrary.push(newBook);
-    console.log(form)
-
-    console.log(form)
-    console.log('Book added!')
+    form.reset();
+    console.log(myLibrary);
+    console.log('Book added!');
+    displayLibrary();
 }
 
-function createBookCard() {
+function displayLibrary() {
+    let books = document.querySelectorAll('.book');
+    books.forEach(book => library.removeChild(book))
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        createBookCard(myLibrary[i]);
+        
+    }
+}
+
+function createBookCard(item) {
   let columnDiv = document.createElement("div");
+  columnDiv.classList.add('book');
   columnDiv.classList.add("column");
   let cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
   columnDiv.appendChild(cardDiv);
 
   let headerThree = document.createElement("h3");
-  headerThree.innerText = titleInput.value;
+  headerThree.innerText = item.title;
 
   let pAuthor = document.createElement("p");
-  pAuthor.innerText = authorInput.value;
+  pAuthor.innerText = item.author;
 
   let pPages = document.createElement("p");
-  pPages.innerText = pagesInput.value;
+  pPages.innerText = item.pages
 
   let pReadStatus = document.createElement("p");
-  pReadStatus.innerText = readStatus.value;
+  pReadStatus.innerText = item.readStatus;
 
   cardDiv.appendChild(headerThree);
   cardDiv.appendChild(pAuthor);
   cardDiv.appendChild(pPages);
   cardDiv.appendChild(pReadStatus);
+
+  library.appendChild(cardDiv);
 }
 
 function removeBookFromLibrary(id) {

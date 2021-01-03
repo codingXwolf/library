@@ -1,49 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-
-<header>
-    <h1>Library</h1>
-</header>
+  </head>
+  <body>
+    <header>
+      <h1>Library</h1>
+    </header>
 
     <form id="form" class="box" action="/script.js">
-        <label for="">Title</label>
-        <input type="text" name="title" id="title">
+      <label for="">Title</label>
+      <input type="text" name="title" id="title" />
 
-        <label for="">Author</label>
-        <input type="text" name="author" id="author">
+      <label for="">Author</label>
+      <input type="text" name="author" id="author" />
 
-        <label for="">Pages</label>
-        <input type="text" name="pages" id="pages">
+      <label for="">Pages</label>
+      <input type="text" name="pages" id="pages" />
 
-        <label for="">Read Status</label>
-        <input type="text" name="readStatus" id="readStatus">
+      <label for="">Read Status</label>
+      <input type="text" name="readStatus" id="readStatus" />
 
-        <button type="submit" id="submitBtn">Add Book</button>
+      <button type="submit" id="submitBtn">Add Book</button>
     </form>
 
     <div class="row" id="library">
-          <div class="column">
-    <div class="card">
-      <h3>Harry Potter and the Philosophers Stone</h3>
-      <p>Author: J.K Rowling</p>
-      <p>Pages: 368</p>
-      <p>Read Status: <button>read</button></p>
-      <button onclick="removeBookFromLibrary()">delete</button>
+        
+      <div class="column">
+        <div class="card">
+          <h3>Harry Potter and the Philosophers Stone</h3>
+          <p>Author: J.K Rowling</p>
+          <p>Pages: 368</p>
+          <p>Read Status: <button>read</button></p>
+          <button onclick="removeBookFromLibrary()">delete</button>
+        </div>
+      </div>
+
     </div>
-  </div>
-    </div>
 
-
-
-
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
