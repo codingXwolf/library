@@ -1,10 +1,21 @@
 import React, { Component } from "react";
+//import Card from './Card';
+
 
 class Library extends Component {
+
   render() {
+
+        return (
+        <div>
+
+        </div>
+        )
+    });
+
     return (
       <div>
-        <p>Library</p>
+        
       </div>
     );
   }
