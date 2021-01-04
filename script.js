@@ -4,7 +4,6 @@
 // let pagesInput = document.querySelector('#pages');
 // let readStatus = document.querySelector('#readStatus');
 let submitBtn = document.querySelector('#submitBtn');
-let readStatusCB = document.querySelector('#readStatus');
 let library = document.querySelector('#library');
 
 //event listeners
@@ -28,14 +27,15 @@ function createId() {
       .substring(1);
 }
 
-function readStatusInputHandler(status) {
-    console.log(status);
-    if(status) {
-        return 'Read';
+function readToggleBtnHandler(toggle) {
+    let toggleLabel = document.getElementById("readToggleBtn");
+    if (toggleLabel.innerText === 'Read') {
+        toggleLabel.innerText = 'Unread';
+        toggleLabel.style.backgroundColor = 'red'
     } else {
-        return 'Unread'
+        toggleLabel.innerText = 'Read'
+        toggleLabel.style.backgroundColor = 'green';
     }
-
 }
 
 class Book {
@@ -91,15 +91,15 @@ function createBookCard(book) {
   let pPages = document.createElement("p");
   pPages.innerText = book.pages;
 
-  let readStatusBtn = document.createElement("button");
-  readStatusBtn.setAttribute('id', 'readStatusBtn')
-  readStatusBtn.addEventListener('click', readStatusInputHandler);
-  readStatusBtn.innerText = readStatusInputHandler();
+  let readToggleBtn = document.createElement("button");
+  readToggleBtn.setAttribute("id", "readToggleBtn");
+  readToggleBtn.addEventListener("click", readToggleBtnHandler);
+//   readToggleBtn.innerText = readStatusInputHandler();
 
   cardDiv.appendChild(headerThree);
   cardDiv.appendChild(pAuthor);
   cardDiv.appendChild(pPages);
-  cardDiv.appendChild(readStatusBtn);
+  cardDiv.appendChild(readToggleBtn);
 
   library.appendChild(columnDiv);
 }
