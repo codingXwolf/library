@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 
 class Form extends Component {
+  constructor(props) {
+    super(props) 
+    this.state = {
+      title: '',
+      author: '',
+      pages: '',
+      readStatus: false
+    }
+
+  }
+  
   render() {
     return (
       <div>
-        <p>Form</p>
+        <form>
+          <input />
+        </form>
       </div>
     );
   }

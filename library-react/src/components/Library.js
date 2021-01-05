@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 //import Card from './Card';
+import Form from './Form';
 
 class Library extends Component {
   constructor(props) {
@@ -36,9 +37,10 @@ class Library extends Component {
 
     return (
       <div>
+        <Form />
         {myLibrary}
       </div>
-    )
+    );
   }
 }
 
