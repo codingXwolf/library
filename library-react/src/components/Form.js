@@ -11,12 +11,20 @@ class Form extends Component {
     }
 
   }
-  
+
+
+
   render() {
     return (
       <div>
         <form>
-          <input />
+          <input 
+          type='text'
+          className='input'
+          placeholder='Enter Title'
+          value={this.state.title}
+          onChange={(e) => this.setState({title: e.target.value})}
+          />
         </form>
       </div>
     );
