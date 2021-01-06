@@ -24,6 +24,10 @@ class Library extends Component {
     };
   }
 
+  componentDidMount = () => {
+    console.log(this.props)
+  }
+
   render() {
     const myLibrary = this.state.library.map((book) => {
       return(
@@ -37,7 +41,7 @@ class Library extends Component {
 
     return (
       <div>
-        <Form />
+        <Form formData={this.addBookToLibrary}/>
         {myLibrary}
       </div>
     );
