@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 //import Card from './Card';
 import Form from './Form';
+import { Card } from 'antd';
 
 class Library extends Component {
   constructor(props) {
@@ -9,12 +10,14 @@ class Library extends Component {
     this.state = {
       library: [
         {
+          id: 1,
           title: "Harry Potter and the Philosophers Stone",
           author: "J.K Rowling",
           pages: 368,
           readStatus: true,
         },
         {
+          id: 2,
           title: "Eragon",
           author: "Christopher",
           pages: 250,
@@ -36,14 +39,29 @@ class Library extends Component {
     this.setState({ library: [...this.state.library, newBook]})
   }
 
+  delBook = (e) => {
+    console.log(e.target);
+  }
+  
+  
   render() {
+
     const myLibrary = this.state.library.map((book) => {
-      return(
+      console.log(book);
+      return (
         <div>
-        <h3>{book.title}</h3>
-        <p>{book.author}</p>
-        <p>{book.pages}</p>
-      </div>
+          <Card
+            key={book.id}
+            size="small"
+            title={book.title}
+            style={{ width: 300 }}
+            hoverable="true"
+          >
+            <p>{book.author}</p>
+            <p>{book.pages}</p>
+            <button onClick={}>X</button>
+          </Card>
+        </div>
       );
     });
 
