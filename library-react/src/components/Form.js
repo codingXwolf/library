@@ -20,16 +20,23 @@ class Form extends Component {
   console.log(this.state);
 }
 
-handleSubmit = (e) => {
+onSubmit = (e) => {
  e.preventDefault();
 
-console.log(this.state)
+this.props.addBook(e.target);
+this.setState({
+  title: "",
+  author: "",
+  pages: 0,
+  readStatus: false,
+});
+
 }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <input
             type="text"
             className="input"
@@ -54,11 +61,10 @@ console.log(this.state)
             value={this.state.pages}
             onChange={this.handleChangeInput}
           />
-        <button
-          onClick={this.handleSubmit.bind(this)}
-        >
-          Submit
-        </button>
+        <input
+         type="submit"
+         value="submit"
+        />
         </form>
       </div>
     );
