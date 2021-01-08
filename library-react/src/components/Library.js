@@ -40,38 +40,23 @@ class Library extends Component {
     this.setState({ library: [...this.state.library, newBook]})
   }
 
-  delBook = (e) => {
-    console.log(this.props.library);
+  delBook = (book) => {
+    console.log(book);
+    const library = this.state.library.filter(index => index.id !== book.id);
+    this.setState({ library })
   }
   
   
   render() {
 
     const myLibrary = this.state.library.map((book) => {
-      console.log(book);
       return (
         <div>
-
           <BookCard
             data={book}
             delBook={this.delBook}
           >
-
           </BookCard>
-          {/* <Card
-            key={book.id}
-            size="small"
-            title={book.title}
-            style={{ width: 300 }}
-            hoverable="true"
-          >
-            <p>{book.author}</p>
-            <p>{book.pages}</p>
-            <input 
-             type="button"
-             placeholder="X"
-             onClick={this.delBook} />
-          </Card> */}
         </div>
       );
     });

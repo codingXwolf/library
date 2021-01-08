@@ -3,13 +3,13 @@ import { Card } from 'antd';
 
 class BookCard extends Component {
     render() {
-        console.log(this.props);
+        
         return (
           <div>
             <Card
               key={this.props.data.id}
               title={this.props.data.title}
-              extra={<button onClick={this.props.delBook}>Delete</button>}
+              extra={<button onClick={this.props.delBook.bind(this, this.props.data)}>Delete</button>}
               style={{ width: 300 }}
               size="small"
               hoverable="true"
