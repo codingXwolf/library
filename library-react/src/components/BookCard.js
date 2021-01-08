@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Card } from 'antd';
+import { Card, Switch } from 'antd';
 
 class BookCard extends Component {
     render() {
+
         
         return (
           <div>
@@ -16,6 +17,7 @@ class BookCard extends Component {
             >
               <p>{this.props.data.author}</p>
               <p>{this.props.data.pages}</p>
+              <Switch onChange={this.props.readStatusHandler}></Switch>
             </Card>
           </div>
         );

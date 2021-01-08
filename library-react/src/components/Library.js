@@ -42,9 +42,12 @@ class Library extends Component {
   }
 
   delBook = (book) => {
-    console.log(book);
     const library = this.state.library.filter(index => index.id !== book.id);
     this.setState({ library })
+  }
+
+  readStatusHandler = (e) => {
+    
   }
   
   
@@ -56,6 +59,7 @@ class Library extends Component {
           <BookCard
             data={book}
             delBook={this.delBook}
+            readStatusHandler={this.readStatusHandler}
           >
           </BookCard>
         </div>

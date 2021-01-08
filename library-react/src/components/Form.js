@@ -24,6 +24,7 @@ onSubmit = (e) => {
  e.preventDefault();
 
 this.props.addBook(e.target);
+
 this.setState({
   title: "",
   author: "",
