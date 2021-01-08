@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-//import Card from './Card';
 import Form from './Form';
-import { Card } from 'antd';
+import BookCard from './BookCard';
+
+
 
 class Library extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class Library extends Component {
   }
 
   delBook = (e) => {
-    console.log(e.target);
+    console.log(this.props.library);
   }
   
   
@@ -50,7 +51,14 @@ class Library extends Component {
       console.log(book);
       return (
         <div>
-          <Card
+
+          <BookCard
+            data={book}
+            delBook={this.delBook}
+          >
+
+          </BookCard>
+          {/* <Card
             key={book.id}
             size="small"
             title={book.title}
@@ -59,8 +67,11 @@ class Library extends Component {
           >
             <p>{book.author}</p>
             <p>{book.pages}</p>
-            <button onClick={}>X</button>
-          </Card>
+            <input 
+             type="button"
+             placeholder="X"
+             onClick={this.delBook} />
+          </Card> */}
         </div>
       );
     });
@@ -72,6 +83,7 @@ class Library extends Component {
       </div>
     );
   }
+  
 }
 
 export default Library;

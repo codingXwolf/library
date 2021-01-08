@@ -7,13 +7,15 @@ class BookCard extends Component {
         return (
           <div>
             <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
+              key={this.props.data.id}
+              title={this.props.data.title}
+              extra={<button onClick={this.props.delBook}>Delete</button>}
               style={{ width: 300 }}
+              size="small"
+              hoverable="true"
             >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
+              <p>{this.props.data.author}</p>
+              <p>{this.props.data.pages}</p>
             </Card>
           </div>
         );
