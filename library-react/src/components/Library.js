@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from './Form';
 import BookCard from './BookCard';
+import {v4 as uuidv4} from "uuid";
 
 
 
@@ -31,7 +32,7 @@ class Library extends Component {
   // Add Book
   addBook = (book) => {
     const newBook = {
-      id: 4,
+      id: uuidv4(),
       title: book.title.value,
       author: book.author.value,
       pages: book.pages.value
