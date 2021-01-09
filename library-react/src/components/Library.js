@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Form from './Form';
-import BookCard from './BookCard';
-import {v4 as uuidv4} from "uuid";
-
-
+import Form from "./Form";
+import BookCard from "./BookCard";
+import { v4 as uuidv4 } from "uuid";
 
 class Library extends Component {
   constructor(props) {
@@ -35,24 +33,37 @@ class Library extends Component {
       id: uuidv4(),
       title: book.title.value,
       author: book.author.value,
-      pages: book.pages.value
-    }
+      pages: book.pages.value,
+    };
     console.log(newBook);
-    this.setState({ library: [...this.state.library, newBook]})
-  }
+    this.setState({ library: [...this.state.library, newBook] });
+  };
 
   delBook = (book) => {
-    const library = this.state.library.filter(index => index.id !== book.id);
-    this.setState({ library })
-  }
+    const library = this.state.library.filter((index) => index.id !== book.id);
+    this.setState({ library });
+  };
 
-  readStatusHandler = (e) => {
-    
-  }
-  
-  
+  readStatusHandler = (bookData) => {
+    console.log(bookData);
+    this.state.library.map((book) => {
+      if (book.readStatus) {
+        const updatedStatus = {
+          ...book,
+          readStatus: !this.readStatus,
+        };
+        return updatedStatus;
+      } else {
+        const updatedStatus = {
+          ...book,
+          readStatus: this.readStatus,
+        };
+        return updatedStatus;
+      }
+    });
+  };
+
   render() {
-
     const myLibrary = this.state.library.map((book) => {
       return (
         <div>
@@ -60,20 +71,18 @@ class Library extends Component {
             data={book}
             delBook={this.delBook}
             readStatusHandler={this.readStatusHandler}
-          >
-          </BookCard>
+          ></BookCard>
         </div>
       );
     });
 
     return (
       <div>
-        <Form addBook={this.addBook}/>
+        <Form addBook={this.addBook} />
         {myLibrary}
       </div>
     );
   }
-  
 }
 
 export default Library;
