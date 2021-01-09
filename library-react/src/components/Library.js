@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Form from "./Form";
+import BookForm from "./BookForm";
 import BookCard from "./BookCard";
 import { v4 as uuidv4 } from "uuid";
 
@@ -78,7 +78,7 @@ class Library extends Component {
 
     return (
       <div>
-        <Form addBook={this.addBook} />
+        <BookForm addBook={this.addBook} />
         {myLibrary}
       </div>
     );
