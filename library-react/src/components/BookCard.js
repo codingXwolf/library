@@ -17,7 +17,7 @@ class BookCard extends Component {
             >
               <p>{this.props.data.author}</p>
               <p>{this.props.data.pages}</p>
-              <Switch onChange={this.props.readStatusHandler}></Switch>
+              <Switch checked={this.props.data.readStatus} onChange={this.props.readStatusHandler}></Switch>
             </Card>
           </div>
         );
