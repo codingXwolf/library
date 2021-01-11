@@ -42,7 +42,7 @@ this.setState({
       <div>
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
-            <input
+            <Input
               style={{ width: 200, margin: "0 10px" }}
               size="small"
               type="text"
@@ -55,7 +55,7 @@ this.setState({
           </Form.Field>
 
           <Form.Field>
-            <input
+            <Input
               style={{ width: 200, margin: "0 10px" }}
               size="small"
               type="text"
@@ -66,9 +66,10 @@ this.setState({
               onChange={this.handleChangeInput}
             />
           </Form.Field>
-          <br />
+
           <Form.Field>
-            <input
+            <Input
+              style={{ width: 200, margin: "0 10px" }}
               type="number"
               className="input"
               placeholder="Pages"
@@ -77,10 +78,9 @@ this.setState({
               onChange={this.handleChangeInput}
             />
           </Form.Field>
-          {/* <Input type="submit" value="submit" />
-           */}
+
           <Form.Field>
-            <Button>Submit</Button>
+            <Button style={{margin: "0 10px" }}>Add</Button>
           </Form.Field>
         </Form>
       </div>

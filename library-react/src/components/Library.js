@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BookForm from "./BookForm";
 import BookCard from "./BookCard";
 import { v4 as uuidv4 } from "uuid";
+import { Header, Grid, GridRow, CardGroup } from 'semantic-ui-react';
 
 class Library extends Component {
   constructor(props) {
@@ -21,6 +22,20 @@ class Library extends Component {
           title: "Eragon",
           author: "Christopher",
           pages: 250,
+          readStatus: false,
+        },
+        {
+          id: 3,
+          title: "Hell Divers",
+          author: "Nicholas Sansbury Smith",
+          pages: 431,
+          readStatus: false,
+        },
+        {
+          id: 4,
+          title: "The Stand",
+          author: "Stephen King",
+          pages: 1172,
           readStatus: false,
         },
       ],
@@ -46,7 +61,7 @@ class Library extends Component {
 
   readStatusHandler = (bookData) => {
     console.log(bookData);
-    this.state.library.map((book) => {
+     this.state.library.map(book => {
       console.log(`${book.readStatus} current library`, `${bookData.readStatus} book status to update` )
     });
   };
@@ -55,11 +70,14 @@ class Library extends Component {
     const myLibrary = this.state.library.map((book) => {
       return (
         <div>
+            <Grid.Column>
           <BookCard
+            key={book.id}
             data={book}
             delBook={this.delBook}
             readStatusHandler={this.readStatusHandler}
           ></BookCard>
+            </Grid.Column>
         </div>
       );
     });
@@ -67,7 +85,15 @@ class Library extends Component {
     return (
       <div>
         <BookForm addBook={this.addBook} />
-        {myLibrary}
+        <br />
+        <Header as="h1" inverted textAlign="center" style={{fontColor: 'black'}}>
+          Book Collection
+        </Header>
+        <Grid columns={3} celled="internally" divided>
+          <GridRow>
+            <CardGroup>{myLibrary}</CardGroup>
+          </GridRow>
+        </Grid>
       </div>
     );
   }

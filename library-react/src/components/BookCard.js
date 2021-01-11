@@ -24,8 +24,11 @@ class BookCard extends Component {
                 >
                   <Icon name="trash alternate" />
                 </Button>
+
                 <Card.Header>{this.props.data.title}</Card.Header>
+
                 <Card.Meta>{this.props.data.author}</Card.Meta>
+                
                 <Card.Description>
                   <strong>Pages: {this.props.data.pages}</strong>
                 </Card.Description>
