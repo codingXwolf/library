@@ -1,6 +1,6 @@
 import React from 'react';
 import Library from './components/Library';
-import "antd/dist/antd.css";
+import "semantic-ui-css/semantic.min.css";
 
 const App = () => {
     return (

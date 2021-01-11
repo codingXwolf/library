@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Switch } from 'antd';
+import { Card, Button, Icon } from 'semantic-ui-react';
 
 class BookCard extends Component {
 
@@ -15,28 +15,21 @@ class BookCard extends Component {
         
         return (
           <div>
-            <Card
-              key={this.props.data.id}
-              title={this.props.data.title}
-              extra={
-                <button
+            <Card>
+              <Card.Content>
+                <Button
+                  icon
+                  floated="right"
                   onClick={this.props.delBook.bind(this, this.props.data)}
                 >
-                  Delete
-                </button>
-              }
-              style={{ width: 300 }}
-              size="small"
-              hoverable="true"
-            >
-              <p>{this.props.data.author}</p>
-              <p>{this.props.data.pages}</p>
-              <Switch
-                checked={this.props.data.readStatus}
-                onClick={this.props.readStatusHandler.bind(this.props.data)}
-                checkedChildren="Read"
-                unCheckedChildren="Unread"
-              ></Switch>
+                  <Icon name="trash alternate" />
+                </Button>
+                <Card.Header>{this.props.data.title}</Card.Header>
+                <Card.Meta>{this.props.data.author}</Card.Meta>
+                <Card.Description>
+                  <strong>Pages: {this.props.data.pages}</strong>
+                </Card.Description>
+              </Card.Content>
             </Card>
           </div>
         );

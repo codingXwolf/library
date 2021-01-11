@@ -47,19 +47,7 @@ class Library extends Component {
   readStatusHandler = (bookData) => {
     console.log(bookData);
     this.state.library.map((book) => {
-      if (book.readStatus) {
-        const updatedStatus = {
-          ...book,
-          readStatus: !this.readStatus,
-        };
-        return updatedStatus;
-      } else {
-        const updatedStatus = {
-          ...book,
-          readStatus: this.readStatus,
-        };
-        return updatedStatus;
-      }
+      console.log(`${book.readStatus} current library`, `${bookData.readStatus} book status to update` )
     });
   };
 

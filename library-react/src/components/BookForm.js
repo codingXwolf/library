@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import {Form, Input, Button, Switch,} from 'antd';
+import {Form, Input, Button} from 'semantic-ui-react';
 
 
 class BookForm extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
+
     this.state = {
       title: '',
       author: '',
@@ -24,7 +25,7 @@ class BookForm extends Component {
 
 onSubmit = (e) => {
  e.preventDefault();
-
+console.log(e.target, 'button is being pressed');
 this.props.addBook(e.target);
 
 this.setState({
@@ -39,19 +40,9 @@ this.setState({
   render() {
     return (
       <div>
-        <Form
-          size="small"
-          labelCol={{
-            span: 4,
-          }}
-          wrapperCol={{
-            span: 14,
-          }}
-          layout="horizontal"
-          onSubmit={this.onSubmit}
-        >
-          <Form.Item>
-            <Input
+        <Form onSubmit={this.onSubmit}>
+          <Form.Field>
+            <input
               style={{ width: 200, margin: "0 10px" }}
               size="small"
               type="text"
@@ -61,10 +52,10 @@ this.setState({
               value={this.state.title}
               onChange={this.handleChangeInput}
             />
-          </Form.Item>
+          </Form.Field>
 
-          <Form.Item>
-            <Input
+          <Form.Field>
+            <input
               style={{ width: 200, margin: "0 10px" }}
               size="small"
               type="text"
@@ -74,10 +65,10 @@ this.setState({
               value={this.state.author}
               onChange={this.handleChangeInput}
             />
-          </Form.Item>
+          </Form.Field>
           <br />
-          <Form.Item>
-            <Input
+          <Form.Field>
+            <input
               type="number"
               className="input"
               placeholder="Pages"
@@ -85,8 +76,12 @@ this.setState({
               value={this.state.pages}
               onChange={this.handleChangeInput}
             />
-          </Form.Item>
-          <input type="submit" value="submit" />
+          </Form.Field>
+          {/* <Input type="submit" value="submit" />
+           */}
+          <Form.Field>
+            <Button>Submit</Button>
+          </Form.Field>
         </Form>
       </div>
     );
