@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import BookForm from "./BookForm";
 import BookCard from "./BookCard";
 import { v4 as uuidv4 } from "uuid";
-import { Header, Grid, GridRow, CardGroup } from 'semantic-ui-react';
+import { Header, Grid, GridRow, CardGroup } from "semantic-ui-react";
+import FormModal from "./FormModal";
 
 class Library extends Component {
   constructor(props) {
@@ -61,8 +62,11 @@ class Library extends Component {
 
   readStatusHandler = (bookData) => {
     console.log(bookData);
-     this.state.library.map(book => {
-      console.log(`${book.readStatus} current library`, `${bookData.readStatus} book status to update` )
+    this.state.library.map((book) => {
+      console.log(
+        `${book.readStatus} current library`,
+        `${bookData.readStatus} book status to update`
+      );
     });
   };
 
@@ -70,25 +74,25 @@ class Library extends Component {
     const myLibrary = this.state.library.map((book) => {
       return (
         <div>
-            <Grid.Column>
-          <BookCard
-            key={book.id}
-            data={book}
-            delBook={this.delBook}
-            readStatusHandler={this.readStatusHandler}
-          ></BookCard>
-            </Grid.Column>
+          <Grid.Column>
+            <BookCard
+              key={book.id}
+              data={book}
+              delBook={this.delBook}
+              readStatusHandler={this.readStatusHandler}
+            ></BookCard>
+          </Grid.Column>
         </div>
       );
     });
 
     return (
       <div>
-        <BookForm addBook={this.addBook} />
+        <FormModal>
+          <BookForm addBook={this.addBook} />
+        </FormModal>
         <br />
-        <Header as="h1" inverted textAlign="center" style={{fontColor: 'black'}}>
-          Book Collection
-        </Header>
+        <br />
         <Grid columns={3} celled="internally" divided>
           <GridRow>
             <CardGroup>{myLibrary}</CardGroup>
