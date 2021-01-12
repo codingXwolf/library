@@ -1,40 +1,54 @@
-import React from "react";
+import React, { Component } from "react";
 import BookForm from './BookForm';
 import { Button, Modal } from "semantic-ui-react";
 // import BookCard from "./BookCard";
 
-function FormModal(props) {
-  const [open, setOpen] = React.useState(false);
+class FormModal extends Component {
+  constructor(props) {
+    super(props)
 
-console.log(props)
+    this.state = {
+      open: false,
+    }
+    
+    
+    console.log(this.props)
+  }
+  
+  setOpen = (bool) => {
+    this.setState({open: bool})
+  } 
 
-  return (
-    <Modal
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
-      open={open}
-      trigger={<Button>Show Modal</Button>}
-    >
-      <Modal.Content>
-        <BookForm  addBook={props.addBook}/>
-      </Modal.Content>
+  render() {
+    return (
+      <Modal
+        style={{ textAlign: "center" }}
+        size="mini"
+        onClose={() => this.setOpen(false)}
+        onOpen={() => this.setOpen(true)}
+        open={this.open}
+        trigger={<Button>Add Book</Button>}
+      >
+        <Modal.Content>
+          <BookForm addBook={this.props.addBook} />
+        </Modal.Content>
 
-      <Modal.Actions>
-        <Button color="black" onClick={() => setOpen(false)}>
-          Exit
-        </Button>
+        <Modal.Actions style={{ textAlign: "center" }}>
+          <Button color="black" onClick={() => this.setOpen(false)}>
+            Exit
+          </Button>
 
-        <Button
-
-          content="Submit"
-          labelPosition="right"
-          icon="checkmark"
-          onClick={() => setOpen(false)}
-          positive
-        />
-      </Modal.Actions>
-    </Modal>
-  );
+          <Button
+            content="Submit"
+            labelPosition="right"
+            icon="checkmark"
+            onClick={() => this.state.setOpen(false)}
+            positive
+          />
+        </Modal.Actions>
+      </Modal>
+    );
+  }
 }
 
 export default FormModal;

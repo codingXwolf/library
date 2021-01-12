@@ -26,6 +26,8 @@ class BookForm extends Component {
 onSubmit = (e) => {
  e.preventDefault();
 console.log(e.target, 'button is being pressed');
+debugger;
+
 this.props.addBook(e.target);
 
 this.setState({
