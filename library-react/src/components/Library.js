@@ -90,7 +90,7 @@ class Library extends Component {
         <BookForm addBook={this.addBook} />
         <br />
         <br />
-        <Grid columns={3} celled="internally" divided>
+        <Grid columns={4} celled="internally" divided>
           <GridRow>
             <CardGroup>{myLibrary}</CardGroup>
           </GridRow>
