@@ -73,10 +73,9 @@ class Library extends Component {
   render() {
     const myLibrary = this.state.library.map((book) => {
       return (
-        <div>
+        <div key={book.id}>
           <Grid.Column>
             <BookCard
-              key={book.id}
               data={book}
               delBook={this.delBook}
               readStatusHandler={this.readStatusHandler}
@@ -88,9 +87,7 @@ class Library extends Component {
 
     return (
       <div>
-        <FormModal>
-          <BookForm addBook={this.addBook} />
-        </FormModal>
+        <BookForm addBook={this.addBook} />
         <br />
         <br />
         <Grid columns={3} celled="internally" divided>

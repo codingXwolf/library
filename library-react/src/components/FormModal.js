@@ -34,9 +34,7 @@ class FormModal extends Component {
         </Modal.Content>
 
         <Modal.Actions style={{ textAlign: "center" }}>
-          <Button color="black" onClick={() => this.setOpen(false)}>
-            Exit
-          </Button>
+
 
           <Button
             content="Submit"
