@@ -37,14 +37,14 @@ class BookForm extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{textAlign:"center"}}>
         <Modal
           style={{ textAlign: "center" }}
           size="mini"
           onClose={() => this.setState({ open: false})}
           onOpen={() => this.setState({open: true})}
           open={this.state.open}
-          trigger={<Button>Add Book</Button>}
+          trigger={<Button primary>New Book</Button>}
         >
           <Modal.Content>
             <Form onSubmit={this.onSubmit}>
@@ -90,6 +90,7 @@ class BookForm extends Component {
                 <Form.Field>
                   <Button
                     style={{ margin: "0 10px" }}
+                    positive
                   >
                     Add
                   </Button>
