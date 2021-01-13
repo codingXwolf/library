@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import BookForm from "./BookForm";
 import BookCard from "./BookCard";
 import { v4 as uuidv4 } from "uuid";
-import { Header, Grid, GridRow, CardGroup } from "semantic-ui-react";
-import FormModal from "./FormModal";
+import { Header, Icon, Grid, GridRow, CardGroup } from "semantic-ui-react";
 
 class Library extends Component {
   constructor(props) {
@@ -87,6 +86,7 @@ class Library extends Component {
 
     return (
       <div>
+        <Header as="h1" size="huge" textAlign="center" style={{margin: 0, padding: '10px'}}>My Library<Icon name="book"/></Header>
         <BookForm addBook={this.addBook} />
         <br />
         <br />
