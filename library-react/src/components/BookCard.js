@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, Icon } from 'semantic-ui-react';
+import { Card, Button, Icon, Label } from 'semantic-ui-react';
 
 class BookCard extends Component {
 
@@ -12,6 +12,13 @@ class BookCard extends Component {
 
     render() {
 
+      const readStatusButton = () => {
+        if(this.props.data.readStatus) {
+          return <Label pointing  basic small color="green" size="small">Read</Label>
+        } else {
+          return <Label pointing basic small color="grey" size="small">Unread</Label>
+        }
+      }
         
         return (
           <div>
@@ -32,7 +39,8 @@ class BookCard extends Component {
                 <Card.Meta>{this.props.data.author}</Card.Meta>
 
                 <Card.Description>
-                  <strong>Pages: {this.props.data.pages}</strong>
+                  <strong>Pages: {this.props.data.pages}</strong> <br/>
+                  {readStatusButton()}
                 </Card.Description>
               </Card.Content>
             </Card>

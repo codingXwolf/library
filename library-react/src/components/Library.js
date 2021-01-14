@@ -29,7 +29,7 @@ class Library extends Component {
           title: "Hell Divers",
           author: "Nicholas Sansbury Smith",
           pages: 431,
-          readStatus: false,
+          readStatus: true,
         },
         {
           id: 4,
