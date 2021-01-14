@@ -35,14 +35,18 @@ class BookForm extends Component {
 
   };
 
+  handleClick = () => {
+    this.setState((prevState) => ({ readStatus: !prevState.readStatus}))
+  }
+
   render() {
     return (
-      <div style={{textAlign:"center"}}>
+      <div style={{ textAlign: "center" }}>
         <Modal
           style={{ textAlign: "center" }}
           size="mini"
-          onClose={() => this.setState({ open: false})}
-          onOpen={() => this.setState({open: true})}
+          onClose={() => this.setState({ open: false })}
+          onOpen={() => this.setState({ open: true })}
           open={this.state.open}
           trigger={<Button primary>New Book</Button>}
         >
@@ -86,17 +90,23 @@ class BookForm extends Component {
                 />
               </Form.Field>
 
+              <Form.Field>
+                <Button
+                  onClick={this.handleClick}
+                  toggle
+                  active={this.state.readStatus}
+                >
+                  Read
+                </Button>
+              </Form.Field>
+
               <Modal.Actions>
                 <Form.Field>
-                  <Button
-                    style={{ margin: "0 10px" }}
-                    positive
-                  >
+                  <Button style={{ margin: "0 10px" }} positive>
                     Add
                   </Button>
                 </Form.Field>
               </Modal.Actions>
-
             </Form>
           </Modal.Content>
         </Modal>
