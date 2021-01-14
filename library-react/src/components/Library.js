@@ -49,6 +49,7 @@ class Library extends Component {
       title: book.title.value,
       author: book.author.value,
       pages: book.pages.value,
+      readStatus: book.readStatus.value
     };
     console.log(newBook);
     this.setState({ library: [...this.state.library, newBook] });

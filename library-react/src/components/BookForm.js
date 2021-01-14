@@ -36,7 +36,8 @@ class BookForm extends Component {
   };
 
   handleClick = () => {
-    this.setState((prevState) => ({ readStatus: !prevState.readStatus}))
+    this.setState((prevState) => prevState.readStatus ? {readStatus: !prevState.readStatus} : {readStatus: prevState.readStatus})
+    console.log(this.state.readStatus);
   }
 
   render() {
@@ -92,11 +93,12 @@ class BookForm extends Component {
 
               <Form.Field>
                 <Button
+                  value={this.state.readStatus}
                   onClick={this.handleClick}
                   toggle
                   active={this.state.readStatus}
                 >
-                  Read
+                  Read?
                 </Button>
               </Form.Field>
 
