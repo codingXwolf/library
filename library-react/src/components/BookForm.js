@@ -21,6 +21,16 @@ class BookForm extends Component {
     console.log(this.state);
   };
 
+  handleReadStatus = (e) => {
+   if(e.target.value) {
+     this.setState({ readStatus: false})
+     console.log(e.target.value);
+   } else {
+     this.setState({ readStatus: true })
+     console.log(e.target.value);
+   }
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
     this.props.addBook(e.target);
@@ -34,11 +44,6 @@ class BookForm extends Component {
     });
 
   };
-
-  handleClick = () => {
-    this.setState((prevState) => prevState.readStatus ? {readStatus: !prevState.readStatus} : {readStatus: prevState.readStatus})
-    console.log(this.state.readStatus);
-  }
 
   render() {
     return (
@@ -94,7 +99,8 @@ class BookForm extends Component {
               <Form.Field>
                 <Button
                   value={this.state.readStatus}
-                  onClick={this.handleClick}
+                  onChange={this.handleReadStatus}
+                  name="readStatus"
                   toggle
                   active={this.state.readStatus}
                 >
