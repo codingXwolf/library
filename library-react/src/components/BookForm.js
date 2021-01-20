@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Input, Button, Modal } from "semantic-ui-react";
+import { Form, Input, Button, Modal, Checkbox } from "semantic-ui-react";
 
 class BookForm extends Component {
   constructor(props) {
@@ -21,15 +21,15 @@ class BookForm extends Component {
     console.log(this.state);
   };
 
-  handleReadStatus = (e) => {
-   if(e.target.value) {
-     this.setState({ readStatus: false})
-     console.log(e.target.value);
-   } else {
-     this.setState({ readStatus: true })
-     console.log(e.target.value);
-   }
-  }
+  // handleReadStatus = (e) => {
+  //  if(e.target.value) {
+  //    this.setState({ readStatus: false})
+  //    console.log(e.target.value);
+  //  } else {
+  //    this.setState({ readStatus: true })
+  //    console.log(e.target.value);
+  //  }
+  // }
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -97,15 +97,15 @@ class BookForm extends Component {
               </Form.Field>
 
               <Form.Field>
-                <Button
+                <Checkbox
                   value={this.state.readStatus}
-                  onChange={this.handleReadStatus}
+                  onChange={this.handleChangeInput}
                   name="readStatus"
                   toggle
-                  active={this.state.readStatus}
+                  label={this.state.readStatus ? "Read" : "Unread"}
                 >
                   Read?
-                </Button>
+                </Checkbox>
               </Form.Field>
 
               <Modal.Actions>
