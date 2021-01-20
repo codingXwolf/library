@@ -44,15 +44,17 @@ class Library extends Component {
 
   // Add Book
   addBook = (book) => {
-    console.log(book.readStatus.value)
+    console.log(typeof book.readStatus.value)
+    const convertReadStatus = book.readStatus.value === "true" ? true : false;
+
     const newBook = {
       id: uuidv4(),
       title: book.title.value,
       author: book.author.value,
       pages: book.pages.value,
-      readStatus: book.readStatus.value
+      readStatus: convertReadStatus,
     };
-    console.log(newBook);
+    
     this.setState({ library: [...this.state.library, newBook] });
   };
 

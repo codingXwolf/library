@@ -8,8 +8,6 @@ class BookCard extends Component {
     render() {
 
       const readStatusButton = () => {
-        console.log(typeof this.props.data.readStatus);
-        debugger;
         // readStatus is being converted into a string. Find a way to prevent it from turning into a string or convert it to boolean.
         if(this.props.data.readStatus) {
           return <Label pointing  basic small color="green" size="small">Read</Label>

@@ -18,7 +18,6 @@ class BookForm extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    console.log(this.state);
   };
 
   handleReadStatus = (e) => {
