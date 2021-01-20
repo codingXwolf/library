@@ -36,7 +36,7 @@ class Library extends Component {
           title: "The Stand",
           author: "Stephen King",
           pages: 1172,
-          readStatus: false,
+          readStatus: null,
         },
       ],
     };
@@ -44,6 +44,7 @@ class Library extends Component {
 
   // Add Book
   addBook = (book) => {
+    console.log(book.readStatus.value)
     const newBook = {
       id: uuidv4(),
       title: book.title.value,
@@ -60,16 +61,6 @@ class Library extends Component {
     this.setState({ library });
   };
 
-  readStatusHandler = (bookData) => {
-    console.log(bookData);
-    this.state.library.map((book) => {
-      console.log(
-        `${book.readStatus} current library`,
-        `${bookData.readStatus} book status to update`
-      );
-    });
-  };
-
   render() {
     const myLibrary = this.state.library.map((book) => {
       return (
@@ -78,7 +69,6 @@ class Library extends Component {
             <BookCard
               data={book}
               delBook={this.delBook}
-              readStatusHandler={this.readStatusHandler}
             ></BookCard>
           </Grid.Column>
         </div>

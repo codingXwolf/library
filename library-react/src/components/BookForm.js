@@ -21,15 +21,9 @@ class BookForm extends Component {
     console.log(this.state);
   };
 
-  // handleReadStatus = (e) => {
-  //  if(e.target.value) {
-  //    this.setState({ readStatus: false})
-  //    console.log(e.target.value);
-  //  } else {
-  //    this.setState({ readStatus: true })
-  //    console.log(e.target.value);
-  //  }
-  // }
+  handleReadStatus = (e) => {
+    this.setState({readStatus: !this.state.readStatus})
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -99,13 +93,12 @@ class BookForm extends Component {
               <Form.Field>
                 <Checkbox
                   value={this.state.readStatus}
-                  onChange={this.handleChangeInput}
+                  onChange={this.handleReadStatus}
+                  checked={this.state.readStatus}
                   name="readStatus"
                   toggle
                   label={this.state.readStatus ? "Read" : "Unread"}
-                >
-                  Read?
-                </Checkbox>
+                ></Checkbox>
               </Form.Field>
 
               <Modal.Actions>

@@ -13,6 +13,7 @@ class BookCard extends Component {
     render() {
 
       const readStatusButton = () => {
+        debugger;
         if(this.props.data.readStatus) {
           return <Label pointing  basic small color="green" size="small">Read</Label>
         } else {
