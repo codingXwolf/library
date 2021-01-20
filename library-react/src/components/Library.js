@@ -10,34 +10,34 @@ class Library extends Component {
 
     this.state = {
       library: [
-        {
-          id: 1,
-          title: "Harry Potter and the Philosophers Stone",
-          author: "J.K Rowling",
-          pages: 368,
-          readStatus: true,
-        },
-        {
-          id: 2,
-          title: "Eragon",
-          author: "Christopher",
-          pages: 250,
-          readStatus: false,
-        },
-        {
-          id: 3,
-          title: "Hell Divers",
-          author: "Nicholas Sansbury Smith",
-          pages: 431,
-          readStatus: true,
-        },
-        {
-          id: 4,
-          title: "The Stand",
-          author: "Stephen King",
-          pages: 1172,
-          readStatus: null,
-        },
+        // {
+        //   id: 1,
+        //   title: "Harry Potter and the Philosophers Stone",
+        //   author: "J.K Rowling",
+        //   pages: 368,
+        //   readStatus: true,
+        // },
+        // {
+        //   id: 2,
+        //   title: "Eragon",
+        //   author: "Christopher",
+        //   pages: 250,
+        //   readStatus: false,
+        // },
+        // {
+        //   id: 3,
+        //   title: "Hell Divers",
+        //   author: "Nicholas Sansbury Smith",
+        //   pages: 431,
+        //   readStatus: true,
+        // },
+        // {
+        //   id: 4,
+        //   title: "The Stand",
+        //   author: "Stephen King",
+        //   pages: 1172,
+        //   readStatus: null,
+        // },
       ],
     };
   }
