@@ -32,6 +32,14 @@ class BookCard extends Component {
               <Icon name="trash alternate" />
             </Button>
 
+            <Button
+              icon
+              floated="right"
+              onClick={this.props.editBook.bind(this, this.props.data)}
+            >
+              <Icon name="edit" />
+            </Button>
+
             <Card.Header>{this.props.data.title}</Card.Header>
 
             <Card.Meta>{this.props.data.author}</Card.Meta>

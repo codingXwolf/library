@@ -63,11 +63,15 @@ class Library extends Component {
     this.setState({ library });
   };
 
+  editBook = (book) => {
+    console.log(book)
+  }
+
   render() {
     const myLibrary = this.state.library.map((book) => {
       return (
         <React.Fragment key={book.id}>
-            <BookCard data={book} delBook={this.delBook}></BookCard>
+            <BookCard data={book} delBook={this.delBook} editBook={this.editBook}></BookCard>
         </React.Fragment>
       );
     });
