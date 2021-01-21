@@ -86,7 +86,7 @@ class Library extends Component {
         <BookForm addBook={this.addBook} />
         <br />
         <br />
-          <CardGroup>{myLibrary}</CardGroup>
+          <CardGroup centered doubling>{myLibrary}</CardGroup>
       </React.Fragment>
     );
   }
