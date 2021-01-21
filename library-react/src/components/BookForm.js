@@ -26,6 +26,11 @@ class BookForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+
+    if(e.target.title.value === '' || e.target.author.value === '' || e.target.pages.value === 0) {
+      return alert('Error Message')
+    }
+
     this.props.addBook(e.target);
 
     this.setState({
