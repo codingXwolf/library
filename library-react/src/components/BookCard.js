@@ -21,7 +21,7 @@ class BookCard extends Component {
     };
 
     return (
-      <div>
+      <React.Fragment>
         <Card>
           <Card.Content>
             <Button
@@ -32,9 +32,7 @@ class BookCard extends Component {
               <Icon name="trash alternate" />
             </Button>
 
-            <Card.Header style={{ overflow: "hidden" }}>
-              {this.props.data.title}
-            </Card.Header>
+            <Card.Header>{this.props.data.title}</Card.Header>
 
             <Card.Meta>{this.props.data.author}</Card.Meta>
 
@@ -44,7 +42,7 @@ class BookCard extends Component {
             </Card.Description>
           </Card.Content>
         </Card>
-      </div>
+      </React.Fragment>
     );
   }
 }
