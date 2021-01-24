@@ -44,7 +44,6 @@ class Library extends Component {
 
   // Add Book
   addBook = (book) => {
-    console.log(typeof book.readStatus.value)
     const convertReadStatus = book.readStatus.value === "true" ? true : false;
 
     const newBook = {
@@ -54,8 +53,11 @@ class Library extends Component {
       pages: book.pages.value,
       readStatus: convertReadStatus,
     };
-    
+        
     this.setState({ library: [...this.state.library, newBook] });
+
+    localStorage.setItem(newBook.id, JSON.stringify(newBook));
+    console.log(JSON.parse(localStorage.getItem(`${newBook.id}`)))
   };
 
   delBook = (book) => {
@@ -63,15 +65,13 @@ class Library extends Component {
     this.setState({ library });
   };
 
-  editBook = (book) => {
-    console.log(book)
-  }
+
 
   render() {
     const myLibrary = this.state.library.map((book) => {
       return (
         <React.Fragment key={book.id}>
-            <BookCard data={book} delBook={this.delBook} editBook={this.editBook}></BookCard>
+            <BookCard data={book} delBook={this.delBook}></BookCard>
         </React.Fragment>
       );
     });
