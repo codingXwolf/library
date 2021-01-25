@@ -8,12 +8,15 @@ class Library extends Component {
   constructor(props) {
     super(props);
 
-    let localStorageBookData = JSON.parse(localStorage.getItem('data'));
-    console.log(localStorageBookData);
+    // const localData = Object.keys(localStorage).reduce(function (obj, str) {
+    //   obj[str] = localStorage.getItem(str);
+    //   return obj;
+    // }, {});
+
+    // console.log(localData);
 
     this.state = {
       library: [
-        localStorageBookData
         // {
         //   id: 1,
         //   title: "Harry Potter and the Philosophers Stone",
@@ -46,6 +49,16 @@ class Library extends Component {
     };
   }
 
+  componentDidMount = () => {
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      let value = localStorage[key];
+      console.log(JSON.parse(value));
+      this.setState({library: [...this.state.library, JSON.parse(value)]});
+      debugger;
+    }
+  }
+
   // Add Book
   addBook = (book) => {
     const convertReadStatus = book.readStatus.value === "true" ? true : false;
@@ -60,7 +73,7 @@ class Library extends Component {
 
     this.setState({ library: [...this.state.library, newBook] });
 
-    localStorage.setItem('data', JSON.stringify(newBook));
+    localStorage.setItem(newBook.id, JSON.stringify(newBook));
     console.log(JSON.parse(localStorage.getItem(`${newBook.id}`)));
   };
 
@@ -69,7 +82,8 @@ class Library extends Component {
     this.setState({ library });
   };
 
-  render() {    
+  render() {
+
     const myLibrary = this.state.library.map((book) => {
       return (
         <React.Fragment key={book.id}>
