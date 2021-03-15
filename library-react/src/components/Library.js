@@ -8,13 +8,6 @@ class Library extends Component {
   constructor(props) {
     super(props);
 
-    // const localData = Object.keys(localStorage).reduce(function (obj, str) {
-    //   obj[str] = localStorage.getItem(str);
-    //   return obj;
-    // }, {});
-
-    // console.log(localData);
-
     this.state = {
       library: [
         // {
@@ -48,18 +41,10 @@ class Library extends Component {
       ],
     };
   }
-
   componentDidMount = () => {
-    for (let i = 0; i < localStorage.length; i++) {
-      let key = localStorage.key(i);
-      let value = localStorage[key];
-      console.log(JSON.parse(value));
-      this.setState({library: [...this.state.library, JSON.parse(value)]});
-      debugger;
-    }
+    this.setState({ library: this.state.library });
   }
 
-  // Add Book
   addBook = (book) => {
     const convertReadStatus = book.readStatus.value === "true" ? true : false;
 
@@ -73,8 +58,6 @@ class Library extends Component {
 
     this.setState({ library: [...this.state.library, newBook] });
 
-    localStorage.setItem(newBook.id, JSON.stringify(newBook));
-    console.log(JSON.parse(localStorage.getItem(`${newBook.id}`)));
   };
 
   delBook = (book) => {
